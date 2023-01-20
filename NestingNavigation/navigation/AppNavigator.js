@@ -8,20 +8,27 @@ import ProductDetailScreen from "../screens/ProductDetailScreen"
 
 import AppTabNavigator from "./AppTabNavigator";
 
-const Stack = createNativeStackNavigator();
+import SplashScreen from "../screens/SplashScreen";
 
-const AppNavigator = () => (
+const Stack = createNativeStackNavigator();
+const AppNavigator = () => {
+    
+    return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
+        <Stack.Navigator initialRouteName="Splash">
+            <Stack.Screen name="Splash" component={SplashScreen} options={{
+                headerShown:false
+            }}/>
             <Stack.Screen name="Login" component={LoginScreen}/>
             <Stack.Screen name="SignUp" component={SignUpScreen}/>
             <Stack.Screen name="Products" component={ProductsScreen}/>
             <Stack.Screen name="ProductDetail" component={ProductDetailScreen}/>
-
+          
             <Stack.Screen name="Root" component={AppTabNavigator} options={{
                 headerShown:false
             }}/>
         </Stack.Navigator>
     </NavigationContainer>
-);
+)
+};
 export default AppNavigator;
